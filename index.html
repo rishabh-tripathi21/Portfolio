@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Rishabh Tripathi — AI & Backend Engineer. Spring Boot · Kafka · LangGraph · Computer Vision. PSIT Kanpur 2027."/>
+  <title>Rishabh Tripathi — AI Backend Engineer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Mono:ital,wght@0,300;0,400;1,300&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <script>
+    const savedTheme = localStorage.getItem('rt-theme');
+    if (savedTheme) {
+      document.documentElement.dataset.theme = savedTheme;
+    } else {
+      document.documentElement.dataset.theme = 'dark';
+    }
+  </script>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+  <!-- CURSOR -->
+  <div id="cursor"></div>
+  <div id="cursor-trail"></div>
+
+  <!-- PROGRESS -->
+  <div id="prog"></div>
+
+  <!-- NOISE OVERLAY -->
+  <canvas id="noise" aria-hidden="true"></canvas>
+
+  <!-- NAV -->
+  <nav id="nav">
+    <a href="#hero" class="nav-logo">RT</a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#achievements">Achievements</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <div class="nav-end">
+      <a href="2301641520146_Rishabh_Tripathi.pdf" target="_blank" class="btn-resume">
+        Resume
+        <svg width="9" height="9" viewBox="0 0 9 9" fill="none"><path d="M1 8L8 1M8 1H2.5M8 1V6.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
+      </a>
+      <button id="themeBtn" class="theme-btn" aria-label="Toggle theme">
+        <svg class="sun" width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="2.5" stroke="currentColor" stroke-width="1.3"/><path d="M7 1v1.5M7 11.5V13M1 7h1.5M11.5 7H13M2.93 2.93l1.06 1.06M10.01 10.01l1.06 1.06M11.07 2.93l-1.06 1.06M3.99 10.01l-1.06 1.06" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
+        <svg class="moon" width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M11.5 7A5.5 5.5 0 1 1 6 1.5a4 4 0 0 0 5.5 5.5z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/></svg>
+      </button>
+      <button id="menuBtn" class="menu-btn" aria-label="Toggle menu" aria-expanded="false">
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- MOBILE MENU OVERLAY -->
+  <div id="mobileMenu" class="mobile-menu" aria-hidden="true">
+    <div class="mm-inner">
+      <a href="#about"        class="mm-link"><span class="mm-num">01</span>About</a>
+      <a href="#projects"     class="mm-link"><span class="mm-num">02</span>Projects</a>
+      <a href="#education"    class="mm-link"><span class="mm-num">03</span>Education</a>
+      <a href="#achievements" class="mm-link"><span class="mm-num">04</span>Achievements</a>
+      <a href="#contact"      class="mm-link"><span class="mm-num">05</span>Contact</a>
+      <a href="2301641520146_Rishabh_Tripathi.pdf" target="_blank" class="mm-resume">
+        Download Resume ↗
+      </a>
+    </div>
+  </div>
+
+  <!-- ══ HERO ══ -->
+  <section id="hero">
+    <div class="hero-bg-grid" aria-hidden="true"></div>
+    <div class="hero-orb orb-1" aria-hidden="true"></div>
+    <div class="hero-orb orb-2" aria-hidden="true"></div>
+    <div class="hero-orb orb-3" aria-hidden="true"></div>
+
+    <div class="hero-inner">
+      <div class="hero-identity rv">
+        <div class="avail-pill">
+          <span class="avail-dot"></span>
+          Open to AI / Backend roles — Available Now
+        </div>
+        <h1>
+          <span class="h1-first">Rishabh</span>
+          <em>Tripathi</em>
+        </h1>
+        <p class="hero-title-line">Backend Engineer (AI Systems) — Building Scalable ML Infrastructure</p>
+      </div>
+
+      <div class="hero-split rv">
+        <div class="hero-statement-wrap">
+          <p class="hero-statement">I build backend systems for ML-driven applications — focusing on real-time processing, system reliability, and scalable architecture.
+          </p>
+          <p class="hero-statement">Currently developing distributed backend systems using Spring Boot, Kafka, LangGraph agents, and Redis with emphasis on real-time event processing.</p>
+          <p class="hero-statement muted">B.Tech CSE (AI) · PSIT Kanpur · Final Year (4th) · 2023–2027</p>
+        </div>
+        <div class="hero-proofs">
+          <div class="proof-item rv" data-delay="0">
+            <span class="proof-n" data-to="400" data-sfx="+">0</span>
+            <span class="proof-l">LeetCode Problems</span>
+          </div>
+          <div class="proof-div"></div>
+          <div class="proof-item rv" data-delay="80">
+            <span class="proof-n">1385</span>
+            <span class="proof-l">Contest Rating</span>
+          </div>
+          <div class="proof-div"></div>
+          <div class="proof-item rv" data-delay="160">
+            <span class="proof-n">94%</span>
+            <span class="proof-l">Detection Accuracy (Custom Dataset)</span>
+          </div>
+          <div class="proof-div"></div>
+          <div class="proof-item rv" data-delay="240">
+            <span class="proof-n">~90%</span>
+            <span class="proof-l">Latency Reduced</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-ctas rv">
+        <a href="2301641520146_Rishabh_Tripathi.pdf" target="_blank" class="cta-solid">
+          <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M1.5 9v1.5a1 1 0 001 1h8a1 1 0 001-1V9M6.5 2v6M4 5.5l2.5 2.5 2.5-2.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Download Resume
+        </a>
+        <a href="https://github.com/rishabh-tripathi21" target="_blank" class="cta-outline">
+          <svg width="13" height="13" viewBox="0 0 14 14" fill="currentColor"><path d="M7 1C3.686 1 1 3.686 1 7c0 2.655 1.722 4.907 4.11 5.7.3.055.41-.13.41-.29v-1.016c-1.668.362-2.018-.803-2.018-.803-.273-.693-.666-.877-.666-.877-.544-.373.04-.365.04-.365.602.042.918.618.918.618.535.916 1.403.651 1.745.498.054-.387.21-.652.38-.801-1.331-.151-2.73-.665-2.73-2.961 0-.654.234-1.188.617-1.607-.062-.151-.267-.76.058-1.585 0 0 .503-.161 1.648.614a5.74 5.74 0 011.5-.202c.509.003 1.021.069 1.5.202 1.145-.775 1.647-.614 1.647-.614.326.824.121 1.434.06 1.585.384.42.616.953.616 1.607 0 2.302-1.401 2.808-2.736 2.956.215.185.407.55.407 1.108v1.643c0 .16.108.348.413.289C11.279 11.905 13 9.654 13 7c0-3.314-2.686-6-6-6z"/></svg>
+          GitHub
+        </a>
+        <a href="https://linkedin.com/in/rishabh-tripathi21" target="_blank" class="cta-outline">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          LinkedIn
+        </a>
+        <a href="https://leetcode.com/rishabh_tripathi" target="_blank" class="cta-outline">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M13.483 0a1.3 1.3 0 0 0-.92.38L2.38 10.56a1.3 1.3 0 0 0 0 1.84l10.183 10.183a1.3 1.3 0 0 0 1.84 0l1.414-1.414a1.3 1.3 0 0 0 0-1.84L7.293 11.5l8.524-8.524a1.3 1.3 0 0 0 0-1.84L14.403.38A1.3 1.3 0 0 0 13.483 0z"/>
+          </svg>
+          LeetCode
+        </a>
+        <a href="mailto:rishabhkt421@gmail.com" class="cta-outline cta-email">rishabhkt421@gmail.com</a>
+      </div>
+    </div>
+
+    <div class="marquee-wrap">
+      <div class="marquee-inner">
+        <span>Java</span><span class="dot">·</span><span>Spring Boot 3</span><span class="dot">·</span>
+        <span>Apache Kafka</span><span class="dot">·</span><span>LangGraph</span><span class="dot">·</span>
+        <span>Redis</span><span class="dot">·</span><span>FastAPI</span><span class="dot">·</span>
+        <span>WebSocket</span><span class="dot">·</span><span>YOLOv8</span><span class="dot">·</span>
+        <span>EasyOCR</span><span class="dot">·</span><span>PostgreSQL</span><span class="dot">·</span>
+        <span>Docker</span><span class="dot">·</span><span>RAG</span><span class="dot">·</span>
+        <span>NLP</span><span class="dot">·</span><span>OpenCV</span><span class="dot">·</span>
+        <span>Python</span><span class="dot">·</span><span>JWT Auth</span><span class="dot">·</span>
+        <!-- dupe -->
+        <span>Java</span><span class="dot">·</span><span>Spring Boot 3</span><span class="dot">·</span>
+        <span>Apache Kafka</span><span class="dot">·</span><span>LangGraph</span><span class="dot">·</span>
+        <span>Redis</span><span class="dot">·</span><span>FastAPI</span><span class="dot">·</span>
+        <span>WebSocket</span><span class="dot">·</span><span>YOLOv8</span><span class="dot">·</span>
+        <span>EasyOCR</span><span class="dot">·</span><span>PostgreSQL</span><span class="dot">·</span>
+        <span>Docker</span><span class="dot">·</span><span>RAG</span><span class="dot">·</span>
+        <span>NLP</span><span class="dot">·</span><span>OpenCV</span><span class="dot">·</span>
+        <span>Python</span><span class="dot">·</span><span>JWT Auth</span><span class="dot">·</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ ABOUT / SKILLS ══ -->
+  <section id="about" class="sec">
+    <div class="sec-head rv">
+      <span class="sec-label">01 — About</span>
+      <h2 class="sec-title">Skills &amp; <em>Stack</em></h2>
+    </div>
+
+    <div class="skills-grid">
+      <div class="skill-card rv glass-card">
+        <div class="skill-card-icon">⚙️</div>
+        <div class="skill-card-head">Backend</div>
+        <ul class="skill-card-list">
+          <li><strong>Java</strong> <span>Primary language</span></li>
+          <li><strong>Spring Boot 3</strong> <span>REST APIs, JWT, WebSocket</span></li>
+          <li><strong>Flask / FastAPI</strong> <span>ML microservices</span></li>
+          <li><strong>Kafka</strong> <span>Async event streaming</span></li>
+          <li><strong>Redis</strong> <span>Caching, pub/sub</span></li>
+        </ul>
+      </div>
+
+      <div class="skill-card rv glass-card">
+        <div class="skill-card-icon">🧠</div>
+        <div class="skill-card-head">AI / ML</div>
+        <ul class="skill-card-list">
+          <li><strong>LangGraph</strong> <span>Agentic AI state machines</span></li>
+          <li><strong>RAG</strong> <span>Retrieval-augmented generation</span></li>
+          <li><strong>YOLOv8</strong> <span>Real-time object detection</span></li>
+          <li><strong>NLP</strong> <span>TF-IDF, text classification</span></li>
+          <li><strong>PyTorch / Scikit-learn</strong> <span>ML training</span></li>
+        </ul>
+      </div>
+
+      <div class="skill-card rv glass-card">
+        <div class="skill-card-icon">🗄️</div>
+        <div class="skill-card-head">Data & Infra</div>
+        <ul class="skill-card-list">
+          <li><strong>PostgreSQL</strong> <span>Relational DB, schema design</span></li>
+          <li><strong>Docker Compose</strong> <span>Multi-service containerization</span></li>
+          <li><strong>Git / GitHub</strong> <span>Version control, PR workflows</span></li>
+          <li><strong>WebSocket / STOMP</strong> <span>Real-time push</span></li>
+        </ul>
+      </div>
+
+      <div class="skill-card rv glass-card">
+        <div class="skill-card-icon">🔬</div>
+        <div class="skill-card-head">Languages & Tools</div>
+        <ul class="skill-card-list">
+          <li><strong>Java, Python</strong> <span>Core languages</span></li>
+          <li><strong>C++ (DSA)</strong> <span>Competitive programming</span></li>
+          <li><strong>OpenCV</strong> <span>Computer vision</span></li>
+          <li><strong>IntelliJ, VS Code</strong> <span>IDEs</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="coursework-strip rv">
+      <span class="cw-label">Relevant Coursework</span>
+      <div class="cw-chips">
+        <span class="cw-chip">Data Structures & Algorithms</span>
+        <span class="cw-chip">Database Management Systems</span>
+        <span class="cw-chip">Design & Analysis of Algorithms</span>
+      </div>
+    </div>
+  </section>
+
+  <div class="rule"></div>
+
+  <!-- ══ PROJECTS ══ -->
+  <section id="projects" class="sec">
+    <div class="sec-head rv">
+      <span class="sec-label">02 — Projects</span>
+      <h2 class="sec-title">What I've <em>Built</em></h2>
+    </div>
+
+    <!-- FLAGSHIP: CyberTwin -->
+    <div class="proj flagship rv glass-proj">
+      <div class="proj-glow" aria-hidden="true"></div>
+      <div class="proj-top">
+        <div class="proj-meta">
+          <span class="proj-idx">01</span>
+          <span class="proj-tag flagship-tag">Flagship</span>
+          <span class="proj-tag">Active</span>
+          <span class="proj-year">Jan 2025 — Present</span>
+        </div>
+        <div class="proj-links">
+          <a href="https://github.com/rishabh-tripathi21/CyberTwin" target="_blank" class="plink">
+            <svg width="12" height="12" viewBox="0 0 14 14" fill="currentColor"><path d="M7 1C3.686 1 1 3.686 1 7c0 2.655 1.722 4.907 4.11 5.7.3.055.41-.13.41-.29v-1.016c-1.668.362-2.018-.803-2.018-.803-.273-.693-.666-.877-.666-.877-.544-.373.04-.365.04-.365.602.042.918.618.918.618.535.916 1.403.651 1.745.498.054-.387.21-.652.38-.801-1.331-.151-2.73-.665-2.73-2.961 0-.654.234-1.188.617-1.607-.062-.151-.267-.76.058-1.585 0 0 .503-.161 1.648.614a5.74 5.74 0 011.5-.202c.509.003 1.021.069 1.5.202 1.145-.775 1.647-.614 1.647-.614.326.824.121 1.434.06 1.585.384.42.616.953.616 1.607 0 2.302-1.401 2.808-2.736 2.956.215.185.407.55.407 1.108v1.643c0 .16.108.348.413.289C11.279 11.905 13 9.654 13 7c0-3.314-2.686-6-6-6z"/></svg>
+            GitHub
+          </a>
+        </div>
+      </div>
+      <h3 class="proj-title">CyberTwin</h3>
+      <p class="proj-sub">ML-powered cybersecurity platform — Kafka event pipeline + LangGraph agents + real-time WebSocket dashboard</p>
+
+      <div class="arch-block">
+        <span class="arch-label">Real System Architecture</span>
+        <div class="arch-flow">
+          <div class="arch-n">React / TS</div>
+          <div class="arch-arr">→</div>
+          <div class="arch-n hi">Spring Boot 3</div>
+          <div class="arch-arr">→</div>
+          <div class="arch-n hi arch-kafka">Kafka</div>
+          <div class="arch-arr">→</div>
+          <div class="arch-n hi arch-lang">LangGraph Agent</div>
+          <div class="arch-arr">→</div>
+          <div class="arch-n hi arch-fastapi">FastAPI</div>
+          <div class="arch-arr">→</div>
+          <div class="arch-n hi arch-redis">Redis</div>
+          <div class="arch-arr">→</div>
+          <div class="arch-n hi">WebSocket</div>
+        </div>
+        <div class="arch-sub-row">
+          <span class="arch-sub-chip">PostgreSQL — persistent storage</span>
+          <span class="arch-sub-chip">Docker Compose — 5 services</span>
+          <span class="arch-sub-chip">JWT — auth layer</span>
+        </div>
+      </div>
+
+      <div class="proj-body">
+        <ul class="proj-bullets">
+          <li>Designed <strong>Kafka-backed async threat pipeline</strong> — producers emit security events, LangGraph agent consumers classify and route threats deterministically</li>
+          <li>Built <strong>FastAPI ML inference service</strong> with Redis caching — reduced repeated classification latency from <strong>800ms → 85ms (~90% reduction)</strong></li>
+          <li>Implemented <strong>WebSocket/STOMP fan-out</strong> via Redis pub/sub to push live alerts to React dashboard without Spring thread starvation</li>
+          <li>Containerized <strong>5 microservices</strong> with Docker Compose — Spring Boot, FastAPI, Kafka, Zookeeper, PostgreSQL, Redis</li>
+          <li>Designed <strong>LangGraph state machine</strong> for deterministic agent flows with conditional branching and explicit fallback handling</li>
+        </ul>
+
+        <div class="metrics-row">
+          <div class="m-item"><span class="m-v">&lt;200ms</span><span class="m-l">E2E latency</span></div>
+          <div class="m-item"><span class="m-v">85ms</span><span class="m-l">Cached inference</span></div>
+          <div class="m-item"><span class="m-v">~90%</span><span class="m-l">Latency reduction</span></div>
+          <div class="m-item"><span class="m-v">5</span><span class="m-l">Microservices</span></div>
+        </div>
+      </div>
+
+      <div class="chip-row">
+        <span class="chip">Spring Boot 3</span><span class="chip">Kafka</span><span class="chip">LangGraph</span>
+        <span class="chip">FastAPI</span><span class="chip">Redis</span><span class="chip">WebSocket</span>
+        <span class="chip">React/TS</span><span class="chip">Docker</span><span class="chip">PostgreSQL</span>
+      </div>
+    </div>
+
+    <!-- ANPR -->
+    <div class="proj rv glass-proj">
+      <div class="proj-top">
+        <div class="proj-meta">
+          <span class="proj-idx">02</span>
+          <span class="proj-year">Oct 2024 — Dec 2024</span>
+        </div>
+        <div class="proj-links">
+          <a href="https://github.com/rishabh-tripathi21/ANPR" target="_blank" class="plink">
+            <svg width="12" height="12" viewBox="0 0 14 14" fill="currentColor"><path d="M7 1C3.686 1 1 3.686 1 7c0 2.655 1.722 4.907 4.11 5.7.3.055.41-.13.41-.29v-1.016c-1.668.362-2.018-.803-2.018-.803-.273-.693-.666-.877-.666-.877-.544-.373.04-.365.04-.365.602.042.918.618.918.618.535.916 1.403.651 1.745.498.054-.387.21-.652.38-.801-1.331-.151-2.73-.665-2.73-2.961 0-.654.234-1.188.617-1.607-.062-.151-.267-.76.058-1.585 0 0 .503-.161 1.648.614a5.74 5.74 0 011.5-.202c.509.003 1.021.069 1.5.202 1.145-.775 1.647-.614 1.647-.614.326.824.121 1.434.06 1.585.384.42.616.953.616 1.607 0 2.302-1.401 2.808-2.736 2.956.215.185.407.55.407 1.108v1.643c0 .16.108.348.413.289C11.279 11.905 13 9.654 13 7c0-3.314-2.686-6-6-6z"/></svg>
+            GitHub
+          </a>
+        </div>
+      </div>
+
+      <h3 class="proj-title">ANPR — Automatic Number Plate Recognition</h3>
+      <p class="proj-sub">Real-time plate detection system — 94% accuracy, 15 FPS live stream, Spring Boot + Flask microservice</p>
+
+      <div class="arch-block">
+        <span class="arch-label">System Flow</span>
+        <div class="arch-flow">
+          <div class="arch-n">Image / Video / Webcam</div>
+          <div class="arch-arr">→</div>
+          <div class="arch-n hi">Spring Boot Gateway</div>
+          <div class="arch-arr">→</div>
+          <div class="arch-n hi arch-lang">Flask + YOLOv8</div>
+          <div class="arch-arr">→</div>
+          <div class="arch-n hi">EasyOCR</div>
+          <div class="arch-arr">→</div>
+          <div class="arch-n">JSON Response</div>
+        </div>
+      </div>
+
+      <div class="proj-body">
+        <ul class="proj-bullets">
+          <li>Built <strong>two-tier microservice</strong>: Spring Boot handles routing &amp; auth, Flask runs YOLOv8 + EasyOCR inference — independently scalable services</li>
+          <li>Implemented <strong>async frame batching</strong> in Flask to reduce Python GIL contention — pushed live stream throughput from <strong>8 FPS → 15 FPS (1.875× gain)</strong></li>
+          <li>Achieved <strong>94% plate detection accuracy</strong> on Indian number plates by fine-tuning confidence thresholds post-inference</li>
+          <li>Achieved <strong>&lt;120ms inference latency</strong> per frame; pinned PyTorch 2.6 + CUDA in Docker to eliminate cross-env compatibility breaks</li>
+          <li>Supports <strong>image upload, video file, and live webcam stream</strong> — single unified REST endpoint with content-type routing</li>
+        </ul>
+
+        <div class="metrics-row">
+          <div class="m-item"><span class="m-v">94%</span><span class="m-l">Detection accuracy</span></div>
+          <div class="m-item"><span class="m-v">15 FPS</span><span class="m-l">Live stream (↑ from 8)</span></div>
+          <div class="m-item"><span class="m-v">&lt;120ms</span><span class="m-l">Inference latency</span></div>
+          <div class="m-item"><span class="m-v">1.875×</span><span class="m-l">Throughput gain</span></div>
+        </div>
+      </div>
+
+      <div class="chip-row">
+        <span class="chip">Python</span><span class="chip">YOLOv8</span><span class="chip">EasyOCR</span>
+        <span class="chip">Spring Boot</span><span class="chip">Flask</span><span class="chip">OpenCV</span><span class="chip">Docker</span>
+      </div>
+    </div>
+
+    <!-- NLP Pipeline -->
+    <div class="proj rv glass-proj">
+      <div class="proj-top">
+        <div class="proj-meta">
+          <span class="proj-idx">03</span>
+          <span class="proj-year">Aug 2024 — Nov 2024</span>
+        </div>
+        <div class="proj-links">
+          <a href="https://github.com/rishabh-tripathi21/NLP-Pipeline-System" target="_blank" class="plink">
+            <svg width="12" height="12" viewBox="0 0 14 14" fill="currentColor"><path d="M7 1C3.686 1 1 3.686 1 7c0 2.655 1.722 4.907 4.11 5.7.3.055.41-.13.41-.29v-1.016c-1.668.362-2.018-.803-2.018-.803-.273-.693-.666-.877-.666-.877-.544-.373.04-.365.04-.365.602.042.918.618.918.618.535.916 1.403.651 1.745.498.054-.387.21-.652.38-.801-1.331-.151-2.73-.665-2.73-2.961 0-.654.234-1.188.617-1.607-.062-.151-.267-.76.058-1.585 0 0 .503-.161 1.648.614a5.74 5.74 0 011.5-.202c.509.003 1.021.069 1.5.202 1.145-.775 1.647-.614 1.647-.614.326.824.121 1.434.06 1.585.384.42.616.953.616 1.607 0 2.302-1.401 2.808-2.736 2.956.215.185.407.55.407 1.108v1.643c0 .16.108.348.413.289C11.279 11.905 13 9.654 13 7c0-3.314-2.686-6-6-6z"/></svg>
+            GitHub
+          </a>
+        </div>
+      </div>
+
+      <h3 class="proj-title">NLP Pipeline System</h3>
+      <p class="proj-sub">End-to-end text classification pipeline — TF-IDF + SVM, automated preprocessing, 60% reduction in prep time</p>
+
+      <div class="proj-body">
+        <ul class="proj-bullets">
+          <li>Built <strong>end-to-end NLP pipeline</strong>: tokenization, stopword removal, TF-IDF vectorization, and classifier training in a single scriptable flow</li>
+          <li>Benchmarked <strong>Naive Bayes, SVM, and Logistic Regression</strong> — SVM achieved highest F1 on held-out test set</li>
+          <li>Automated preprocessing to <strong>cut manual data-prep time by ~60%</strong> versus ad-hoc notebook workflows</li>
+        </ul>
+      </div>
+
+      <div class="chip-row">
+        <span class="chip">Python</span><span class="chip">NLP</span><span class="chip">TF-IDF</span>
+        <span class="chip">Scikit-learn</span><span class="chip">SVM</span>
+      </div>
+    </div>
+  </section>
+
+  <div class="rule"></div>
+
+  <!-- ══ EDUCATION ══ -->
+  <section id="education" class="sec">
+    <div class="sec-head rv">
+      <span class="sec-label">03 — Education</span>
+      <h2 class="sec-title">Academic <em>Background</em></h2>
+    </div>
+
+    <div class="tl">
+
+      <!-- B.Tech -->
+      <div class="tl-item rv">
+        <div class="tl-left">
+          <div class="tl-date">2023 — 2027</div>
+          <div class="tl-dot active-dot"></div>
+        </div>
+        <div class="tl-right">
+          <div class="tl-badge-row">
+            <span class="tl-badge active-badge">Current · 4th Year · Final Year</span>
+          </div>
+          <div class="tl-role">B.Tech — Computer Science &amp; Engineering (AI)</div>
+          <div class="tl-org">Pranveer Singh Institute of Technology, Kanpur</div>
+          <ul class="tl-bullets">
+            <li>Specialization in <strong>Artificial Intelligence</strong> — ML, computer vision, NLP, Agentic AI coursework</li>
+            <li>Current aggregate: <strong>74.76%</strong> (up to 5th semester)</li>
+            <li>Final Year Project: <strong>CyberTwin</strong> — ML-powered cybersecurity platform (lead architect)</li>
+            <li>400+ LeetCode problems — weekly rated contests, consistent DSA practice</li>
+          </ul>
+          <div class="tl-outcomes">
+            <span class="outcome">74.76% aggregate</span>
+            <span class="outcome">AI specialization</span>
+            <span class="outcome">Final Year</span>
+            <span class="outcome">2027 Graduate</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- ISC -->
+      <div class="tl-item rv">
+        <div class="tl-left">
+          <div class="tl-date">2022</div>
+          <div class="tl-dot"></div>
+        </div>
+        <div class="tl-right">
+          <div class="tl-role">ISC — Class XII</div>
+          <div class="tl-org">R.V.S. International School</div>
+          <ul class="tl-bullets">
+            <li>Completed ISC (Class XII) with <strong>82.2%</strong></li>
+          </ul>
+          <div class="tl-outcomes">
+            <span class="outcome">82.2%</span>
+            <span class="outcome">ISC Board</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- ICSE -->
+      <div class="tl-item rv">
+        <div class="tl-left">
+          <div class="tl-date">2020</div>
+          <div class="tl-dot"></div>
+        </div>
+        <div class="tl-right">
+          <div class="tl-role">ICSE — Class X</div>
+          <div class="tl-org">R.V.S. International School</div>
+          <ul class="tl-bullets">
+            <li>Completed ICSE (Class X) with <strong>81.66%</strong></li>
+          </ul>
+          <div class="tl-outcomes">
+            <span class="outcome">81.66%</span>
+            <span class="outcome">ICSE Board</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Certifications -->
+    <div class="cert-strip rv">
+      <span class="cert-label">Certifications</span>
+      <div class="cert-list">
+        <div class="cert-item glass-card">
+          <span class="cert-name">Spring Framework for Java Development</span>
+          <span class="cert-issuer">Coursera</span>
+        </div>
+        <div class="cert-item glass-card">
+          <span class="cert-name">Data Structures &amp; Algorithms</span>
+          <span class="cert-issuer">Udemy</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="rule"></div>
+
+  <!-- ══ ACHIEVEMENTS ══ -->
+  <section id="achievements" class="sec">
+    <div class="sec-head rv">
+      <span class="sec-label">04 — Achievements</span>
+      <h2 class="sec-title">What I've <em>Earned</em></h2>
+    </div>
+
+    <div class="ach-grid">
+
+      <div class="ach-card rv glass-card">
+        <div class="ach-icon-wrap">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L8.5 8.5 2 9.27l5 4.87-1.18 6.88L12 17.77l6.18 3.25L17 14.14l5-4.87-6.5-.77L12 2z"/></svg>
+        </div>
+        <div class="ach-body">
+          <div class="ach-title">400+ LeetCode Problems</div>
+          <div class="ach-sub">Graphs · DP · Trees · Binary Search · Greedy. Weekly rated contests with contest rating 1385.</div>
+        </div>
+        <span class="ach-badge">DSA</span>
+      </div>
+
+      <div class="ach-card rv glass-card">
+        <div class="ach-icon-wrap">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+        </div>
+        <div class="ach-body">
+          <div class="ach-title">94% Detection Accuracy — ANPR</div>
+          <div class="ach-sub">94% plate detection on Indian number plates. Pushed live stream from 8 FPS → 15 FPS via async frame batching.</div>
+        </div>
+        <span class="ach-badge">CV</span>
+      </div>
+
+      <div class="ach-card rv glass-card">
+        <div class="ach-icon-wrap">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <div class="ach-body">
+          <div class="ach-title">~90% Latency Reduction — CyberTwin</div>
+          <div class="ach-sub">Reduced ML inference from 800ms to 85ms using Redis caching in FastAPI inference service.</div>
+        </div>
+        <span class="ach-badge">Perf</span>
+      </div>
+
+      <div class="ach-card rv glass-card">
+        <div class="ach-icon-wrap">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+        </div>
+        <div class="ach-body">
+          <div class="ach-title">Final Year Project Lead — CyberTwin</div>
+          <div class="ach-sub">Architecting and leading a 5-service ML cybersecurity platform with Kafka, LangGraph agents, and real-time WebSocket.</div>
+        </div>
+        <span class="ach-badge">Lead</span>
+      </div>
+
+      <div class="ach-card rv glass-card">
+        <div class="ach-icon-wrap">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg>
+        </div>
+        <div class="ach-body">
+          <div class="ach-title">IEEE PSIT Student Branch</div>
+          <div class="ach-sub">Active member since 2023 — technical workshops, engineering events, and cross-disciplinary AI projects.</div>
+        </div>
+        <span class="ach-badge">Member</span>
+      </div>
+
+      <div class="ach-card rv glass-card">
+        <div class="ach-icon-wrap">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+        </div>
+        <div class="ach-body">
+          <div class="ach-title">Spring Framework Certified</div>
+          <div class="ach-sub">Coursera certification — applied directly in production-style Spring Boot 3 backends across projects.</div>
+        </div>
+        <span class="ach-badge">Cert</span>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ══ CONTACT ══ -->
+  <section id="contact" class="contact-sec">
+    <div class="contact-orb" aria-hidden="true"></div>
+    <div class="contact-inner">
+      <div class="contact-left rv">
+        <div class="avail-pill light">
+          <span class="avail-dot"></span>
+          Available for roles — 2025
+        </div>
+        <h2 class="contact-hed">Open to <em>great</em><br>problems.</h2>
+        <p class="contact-sub">Looking for AI Backend / SDE Backend roles. Final year at PSIT Kanpur (2027). If you're building ML systems, distributed infra, or something technically hard — reach out.</p>
+        <div class="contact-phone">
+          <span class="cl-t">Phone</span>
+          <span class="cl-v">+91 7521051526</span>
+        </div>
+      </div>
+      <div class="contact-right rv">
+        <a class="cl" href="mailto:rishabhkt421@gmail.com">
+          <div><span class="cl-t">Email</span><span class="cl-v">rishabhkt421@gmail.com</span></div>
+          <span class="cl-arr">↗</span>
+        </a>
+        <a class="cl" href="https://github.com/rishabh-tripathi21" target="_blank">
+          <div><span class="cl-t">GitHub</span><span class="cl-v">github.com/rishabh-tripathi21</span></div>
+          <span class="cl-arr">↗</span>
+        </a>
+        <a class="cl" href="https://linkedin.com/in/rishabh-tripathi21" target="_blank">
+          <div><span class="cl-t">LinkedIn</span><span class="cl-v">linkedin.com/in/rishabh-tripathi21</span></div>
+          <span class="cl-arr">↗</span>
+        </a>
+        <a class="cl" href="https://leetcode.com/rishabh_tripathi21" target="_blank">
+          <div><span class="cl-t">LeetCode</span><span class="cl-v">leetcode.com/rishabh_tripathi21</span></div>
+          <span class="cl-arr">↗</span>
+        </a>
+        <a class="cl" href="2301641520146_Rishabh_Tripathi.pdf" target="_blank">
+          <div><span class="cl-t">Resume</span><span class="cl-v">View / Download PDF</span></div>
+          <span class="cl-arr">↗</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <span>© 2025 Rishabh Tripathi</span>
+    <span>B.Tech CSE (AI) · PSIT Kanpur · 2027</span>
+    <span>AI Backend Engineer · Open to roles</span>
+  </footer>
+
+  <script src="main.js"></script>
+
+</body>
+</html>

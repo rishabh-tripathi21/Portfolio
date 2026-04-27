@@ -38,13 +38,16 @@ It highlights:
 ---
 
 ## 📂 Project Structure
+
+```
 Portfolio/
 ├── index.html
 ├── style.css
 ├── main.js
 ├── README.md
 ├── .gitignore
-└── Rishabh_Tripathi_Backend_AI_Resume.pdf
+├── Rishabh_Tripathi_Backend_AI_Resume.pdf
+```
 
 
 ---

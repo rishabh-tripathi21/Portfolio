@@ -8,6 +8,8 @@
 /* ─── THEME ─── */
 const html = document.documentElement;
 const themeBtn = document.getElementById('themeBtn');
+const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+const isTouchDevice = () => window.matchMedia('(hover: none) and (pointer: coarse)').matches;
 
 (function initTheme() {
   const saved = localStorage.getItem('rt-theme');
@@ -29,6 +31,12 @@ themeBtn.addEventListener('click', () => {
 /* ─── CUSTOM CURSOR ─── */
 const cursor      = document.getElementById('cursor');
 const cursorTrail = document.getElementById('cursor-trail');
+
+// Hide cursor on touch or reduced motion preference
+if (isTouchDevice() || prefersReducedMotion) {
+  cursor.style.display = 'none';
+  cursorTrail.style.display = 'none';
+}
 
 let mouseX = 0, mouseY = 0;
 let trailX = 0, trailY = 0;
@@ -185,31 +193,35 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
 
 /* ─── PARALLAX ORBS on mousemove ─── */
 const orbs = document.querySelectorAll('.hero-orb');
-document.addEventListener('mousemove', e => {
-  const cx = window.innerWidth  / 2;
-  const cy = window.innerHeight / 2;
-  const dx = (e.clientX - cx) / cx;
-  const dy = (e.clientY - cy) / cy;
+if (!prefersReducedMotion) {
+  document.addEventListener('mousemove', e => {
+    const cx = window.innerWidth  / 2;
+    const cy = window.innerHeight / 2;
+    const dx = (e.clientX - cx) / cx;
+    const dy = (e.clientY - cy) / cy;
 
-  orbs.forEach((orb, i) => {
-    const factor = (i + 1) * 14;
-    orb.style.transform = `translate(${dx * factor}px, ${dy * factor}px)`;
+    orbs.forEach((orb, i) => {
+      const factor = (i + 1) * 14;
+      orb.style.transform = `translate(${dx * factor}px, ${dy * factor}px)`;
+    });
   });
-});
+}
 
 /* ─── GLASS PROJ GLOW FOLLOW ─── */
-document.querySelectorAll('.glass-proj').forEach(proj => {
-  proj.addEventListener('mousemove', e => {
-    const rect  = proj.getBoundingClientRect();
-    const x     = e.clientX - rect.left;
-    const y     = e.clientY - rect.top;
-    const glow  = proj.querySelector('.proj-glow');
-    if (glow) {
-      glow.style.left = (x - 150) + 'px';
-      glow.style.top  = (y - 150) + 'px';
-    }
+if (!prefersReducedMotion) {
+  document.querySelectorAll('.glass-proj').forEach(proj => {
+    proj.addEventListener('mousemove', e => {
+      const rect  = proj.getBoundingClientRect();
+      const x     = e.clientX - rect.left;
+      const y     = e.clientY - rect.top;
+      const glow  = proj.querySelector('.proj-glow');
+      if (glow) {
+        glow.style.left = (x - 150) + 'px';
+        glow.style.top  = (y - 150) + 'px';
+      }
+    });
   });
-});
+}
 
 /* ─── ARCH NODE HIGHLIGHT — show flow up to hovered node ─── */
 document.querySelectorAll('.arch-flow').forEach(flow => {
@@ -280,14 +292,16 @@ if (marqueeInner) {
 }
 
 /* ─── TILT on achievement cards ─── */
-document.querySelectorAll('.ach-card, .skill-card').forEach(card => {
-  card.addEventListener('mousemove', e => {
-    const rect = card.getBoundingClientRect();
-    const x    = (e.clientX - rect.left) / rect.width  - 0.5;
-    const y    = (e.clientY - rect.top)  / rect.height - 0.5;
-    card.style.transform = `translateY(-4px) rotateX(${-y * 5}deg) rotateY(${x * 5}deg)`;
+if (!prefersReducedMotion) {
+  document.querySelectorAll('.ach-card, .skill-card').forEach(card => {
+    card.addEventListener('mousemove', e => {
+      const rect = card.getBoundingClientRect();
+      const x    = (e.clientX - rect.left) / rect.width  - 0.5;
+      const y    = (e.clientY - rect.top)  / rect.height - 0.5;
+      card.style.transform = `translateY(-4px) rotateX(${-y * 5}deg) rotateY(${x * 5}deg)`;
+    });
+    card.addEventListener('mouseleave', () => {
+      card.style.transform = '';
+    });
   });
-  card.addEventListener('mouseleave', () => {
-    card.style.transform = '';
-  });
-});
+}

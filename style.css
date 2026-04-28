@@ -78,6 +78,30 @@ ul { list-style: none; }
 button { font-family: inherit; cursor: none; border: none; background: none; }
 strong { font-weight: 500; }
 
+/* ACCESSIBILITY */
+.skip-link {
+  position: absolute; top: -9999px; left: -9999px;
+  z-index: 9999; padding: .5rem 1rem; background: var(--ink);
+  color: var(--bg); border-radius: 4px; font-family: var(--mono);
+  font-size: .62rem; letter-spacing: .1em;
+}
+.skip-link:focus { top: 1.2rem; left: 50%; transform: translateX(-50%); }
+
+a:focus-visible, button:focus-visible {
+  outline: 2px solid var(--green);
+  outline-offset: 2px; border-radius: 4px;
+}
+
+/* Reduce motion for accessibility */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
+  .rv { animation: none; transition: none; }
+  .theme-btn, .menu-btn, .cta-outline, .cta-solid { transition: none; }
+  #cursor-trail { display: none; }
+  .hero-orb { animation: none; }
+  .marquee-inner { animation: none; }
+}
+
 /* ═══════════════════════════════════════════════
    CUSTOM CURSOR
    Dark mode: white dot, mix-blend-mode difference
@@ -1163,6 +1187,20 @@ footer span {
 
 /* Light mode mobile menu */
 [data-theme="light"] .mobile-menu { background: var(--bg); }
+
+/* Mobile: reduce animations and interactive overhead */
+@media (max-width: 700px) {
+  @media (prefers-reduced-motion: no-preference) {
+    /* Only run select animations on mobile if motion is not reduced */
+    .rv { opacity: 0; transform: translateY(14px); transition: opacity .45s var(--ease), transform .45s var(--ease); }
+    .rv.in { opacity: 1; transform: none; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .hero-orb { display: none; }
+    .marquee-inner { display: none; }
+    .proj-glow { display: none; }
+  }
+}
 
 /* ═══════════════════════════════════════════════
    LIGHT MODE COLOR FIXES

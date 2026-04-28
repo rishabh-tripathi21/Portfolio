@@ -6,7 +6,7 @@ Backend Engineer (AI Systems) focused on building scalable backend architectures
 
 ## 🔗 Live Demo
 
-👉 https://your-portfolio-link.vercel.app  
+👉 https://rishabh21-portfolio.vercel.app 
 👉 Resume: assets/resume/Rishabh_Tripathi_Backend_AI_Resume.pdf  
 
 ---

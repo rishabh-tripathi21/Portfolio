@@ -645,7 +645,7 @@ body {
   .project-featured { flex-direction: column; gap: 24px; }
   .project-featured-right { display: none; }
   .floating-tag { display: none; }
-  .ft-1, .ft-3, .ft-5, .ft-8 { display: inline-block; }
+  .ft-1, .ft-4, .ft-6, .ft-8 { display: inline-block; }
 }
 
 @media (max-width: 768px) {

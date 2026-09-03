@@ -223,22 +223,25 @@ window.addEventListener('scroll', () => {
   }
 }, { passive: true });
 
-// ─── HERO FLOATING TAG MOUSE PARALLAX ────────────────────
-const heroEl = document.querySelector('.hero');
-if (heroEl && !('ontouchstart' in window)) {
-  heroEl.addEventListener('mousemove', e => {
-    const rect = heroEl.getBoundingClientRect();
+// ─── HERO CARD MOUSE PARALLAX ────────────────────────────
+const heroCard = document.querySelector('.hero-card');
+if (heroCard && !('ontouchstart' in window)) {
+  heroCard.addEventListener('mousemove', e => {
+    const rect = heroCard.getBoundingClientRect();
     const x = (e.clientX - rect.left - rect.width / 2) / rect.width;
     const y = (e.clientY - rect.top - rect.height / 2) / rect.height;
-    heroEl.querySelectorAll('.floating-tag').forEach((tag, i) => {
-      const depth = 6 + (i % 4) * 3;
-      tag.style.transform = `translate(${x * depth}px, ${y * depth}px)`;
-    });
+    const ill = heroCard.querySelector('.hero-illustration');
+    if (ill) {
+      ill.style.transform = `translate(${x * 12}px, ${y * 8}px)`;
+      ill.style.transition = 'transform 0.2s ease';
+    }
   });
-  heroEl.addEventListener('mouseleave', () => {
-    heroEl.querySelectorAll('.floating-tag').forEach(tag => {
-      tag.style.transform = '';
-    });
+  heroCard.addEventListener('mouseleave', () => {
+    const ill = heroCard.querySelector('.hero-illustration');
+    if (ill) {
+      ill.style.transform = '';
+      ill.style.transition = 'transform 0.6s ease';
+    }
   });
 }
 
